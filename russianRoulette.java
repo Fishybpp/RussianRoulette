@@ -72,16 +72,19 @@ class russsianRoulette{
     }
     void main(){
         Revolver gun = new Revolver();
-        gun.buildRevolver();
         IO.println("Welcome to Russian Roullete");
         String cont = "hi"; 
-        gun.printRevolver();
+        
        int round = 1;
         Player player = new Player();
         Computer computer = new Computer();
-        while (!cont.toLowerCase().equals("no")){ 
+        while (!(cont.equals("no"))){ 
             cont = IO.readln("Are you Ready to Play (yes or no): ");
-            
+            if (cont.equals("no")){
+                break;
+            }
+            gun.buildRevolver();
+            gun.printRevolver();
             int turn = 0;
             int skips = 2;
             player.health =3;
@@ -126,6 +129,7 @@ class russsianRoulette{
                     IO.println("You lost better luck next time");
                 }
                 turn++;
+                IO.println("============================================");
             }
         }
 
